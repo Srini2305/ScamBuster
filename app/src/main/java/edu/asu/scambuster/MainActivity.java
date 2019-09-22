@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    for (String word:result) {
-                        if(suspiciousWords.contains(word.toLowerCase())){
+                    for (String word:suspiciousWords) {
+                        if(result.get(0).toLowerCase().contains(word)){
                             spam = true;
                         }
                     }
